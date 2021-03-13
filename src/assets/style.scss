@@ -61,9 +61,16 @@ html {
 }
 
 @media (max-width: 690px) {
-  .clock-col {
-    ul {
-      margin: 20px !important;
+  .clock {
+    padding: 10px;
+    .clock-col {
+      ul {
+        margin: 10px !important;
+        .clock-slot {
+          padding: 1rem !important;
+          margin-bottom: 15px;
+        }
+      }
     }
   }
 }
