@@ -24,7 +24,7 @@ export default {
   name: 'Clock',
   data() {
     return {
-      time: null,
+      time: '00:00:00',
       interval: null,
       settings: [{
         slots: 2,
@@ -70,21 +70,6 @@ export default {
       }
     },
     isActive(colIdx, slotIdx) {
-
-      // [{
-      //   slots: 4,
-      //   binary: 1
-      // }]
-
-      // <li id="0"> 0 >= 3 ? false
-      // <li id="1"> 1 >= 3 ? false
-      // <li id="2"> 2 >= 3 ? false
-      // <li id="3"> 3 >= 3 ? true => check if is 1 or 0
-
-      // slotSize / binaryLength => 1
-
-      // let validator = this.settings[colIdx].slots / this.settings[colIdx].binary.length
-
       let binaryLength = this.settings[colIdx].binary.length
       let validator = parseInt(binaryLength) -  this.settings[colIdx].slots
 

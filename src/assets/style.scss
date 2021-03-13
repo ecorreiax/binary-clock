@@ -30,9 +30,11 @@ html {
     color: #2b2d2f;
     font-size: 52px;
     margin-bottom: 1rem;
+    animation: slideIn 1s forwards;
   }
   .clock {
     display: flex;
+    animation: fadeIn 1s forwards;
     .clock-col {
       display: flex;
       align-items: center;
@@ -47,7 +49,7 @@ html {
           font-size: 700;
           border-radius: 100px;
           background-color: #2a2d2f;
-          transition: all 0.1s linear;
+          transition: all 0.2s linear;
         }
       }
     }
@@ -63,6 +65,24 @@ html {
     ul {
       margin: 20px !important;
     }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
