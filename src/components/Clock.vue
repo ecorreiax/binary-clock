@@ -6,12 +6,11 @@
         :key="colIdx"
       >
         <ul>
-          <li 
-            class="clock-slot" 
+          <vSlot 
             v-for="(slot, slotIdx) in clock.slots" 
-            :key="slotIdx"
-            :class="isActive(colIdx, slotIdx) ? 'l-active' : ''"
-          ></li>
+            :key="slotIdx" 
+            :class="isActive(colIdx, slotIdx) ? 'l-active' : ''" 
+          />
         </ul>
       </div>
     </div>
@@ -20,31 +19,26 @@
 </template>
 
 <script>
+
+import vSlot from "./Slot.vue"
+
 export default {
   name: 'Clock',
+  components: {
+    vSlot
+  },
   data() {
     return {
       time: '00:00:00',
       interval: null,
-      settings: [{
-        slots: 2,
-        binary: 0
-      }, {
-        slots: 4,
-        binary: 0
-      }, {
-        slots: 3,
-        binary: 0
-      }, {
-        slots: 4,
-        binary: 0
-      }, {
-        slots: 3,
-        binary: 0
-      }, {
-        slots: 4,
-        binary: 0
-      }],
+      settings: [
+      { slots: 2, binary: 0 }, 
+      { slots: 4, binary: 0 }, 
+      { slots: 3, binary: 0 }, 
+      { slots: 4, binary: 0 }, 
+      { slots: 3, binary: 0 }, 
+      { slots: 4, binary: 0 }
+      ],
     }
   },
   beforeDestroy() {
@@ -71,7 +65,7 @@ export default {
     },
     isActive(colIdx, slotIdx) {
       let binaryLength = this.settings[colIdx].binary.length
-      let validator = parseInt(binaryLength) -  this.settings[colIdx].slots
+      let validator = parseInt(binaryLength) - this.settings[colIdx].slots
 
       if (slotIdx >= validator) {
         return this.settings[colIdx].binary[slotIdx + validator] == 1 ? true : false
@@ -82,7 +76,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
